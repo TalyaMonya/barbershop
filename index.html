@@ -42,7 +42,7 @@
           </ul>
         </nav>
         <a class="header-contact link" href="tel:+380441111111">+38 044 111 11 11</a>
-        <button class="btn btn-light" type="button" data-modal-open="">Online-booking</button>
+        <button class="btn btn-light js-open-modal" type="button" data-modal="1">Online-booking</button>
       </div>
     </header>
     <main>
@@ -130,7 +130,7 @@
               are a team that is always "on the same wave" with clients. Therefore, we are always
               ready to improve everyone who comes to us!
             </p>
-            <button class="btn" type="button">Online-booking</button>
+            <button class="btn js-open-modal" type="button" data-modal="1">Online-booking</button>
           </div>
         </div>
       </section>
@@ -176,7 +176,7 @@
               </ul>
             </li>
           </ul>
-          <button class="price-btn btn btn-light" type="button">Online-booking</button>
+          <button class="price-btn btn btn-light js-open-modal" type="button" data-modal="1">Online-booking</button>
         </div>
       </section>
 
@@ -561,20 +561,22 @@
     </footer>
 
     <!--======= Modal Window =======-->
-    <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button class="modal-close-btn" type="button" data-modal-close>
+    <div class="backdrop overlay js-overlay-modal"></div>
+      <div class="booking-modal modal" data-modal="1">
+        <button class="modal-close-btn js-modal-close" type="button">
           <svg class="modal-close-icon" width="12" height="12">
             <use href="./images/sprite.svg#icon-close"></use>
           </svg>
         </button>
       </div>
-    </div>
+    
+    
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
     <script src="./js/header.js"></script>
-    <script src="./js/modal.js"></script>
+    <script src="./js/modal-openclose.js"></script>
   </body>
 </html>
