@@ -29,6 +29,10 @@
   | Base styles
   |============================
 */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--primary-font);
   font-size: 18px;
@@ -187,7 +191,7 @@ button {
 
   width: 100%;
   padding-top: 22px;
-  padding-bottom: 22px;
+  padding-bottom: 15px;
 
   transition: background-color var(--anim-slow), backdrop-filter var(--anim-slow);
 }
@@ -254,13 +258,16 @@ button {
   transform: scaleX(1.1);
 }
 
+.header-btn{
+margin-right: 20px;
+}
+
 /**
   |============================
   | Hero styles
   |============================
 */
-.hero {
-}
+
 .hero-container {
   display: flex;
 }
@@ -350,8 +357,6 @@ button {
   background-color: var(--secondary-txt-cl);
 }
 
-.media-item {
-}
 .media-link {
   display: block;
   padding: 15px 0;
@@ -379,8 +384,7 @@ button {
 .hero-controls {
   display: none;
 }
-.hero-controls-item {
-}
+
 .hero-controls-btn {
   font-weight: 600;
   font-size: 11px;
@@ -396,8 +400,7 @@ button {
   | About styles
   |============================
 */
-.about {
-}
+
 .about-container {
   display: flex;
   gap: 30px;
@@ -406,10 +409,7 @@ button {
   display: flex;
   gap: 30px;
 }
-.about-item {
-}
-.about-img {
-}
+
 .about-right-side {
   width: 470px;
 }
@@ -422,8 +422,7 @@ button {
   font-size: 14px;
   line-height: 1.86;
 }
-.about-btn {
-}
+
 /**
   |============================
   | Price styles
@@ -439,10 +438,7 @@ button {
   background-position: center;
   background-size: cover;
 }
-.price-uppertitle {
-}
-.price-title {
-}
+
 .price-list {
   margin-bottom: 44px;
   display: flex;
@@ -497,23 +493,48 @@ button {
   | Benefits styles
   |============================
 */
-.benefits {
+
+.benefits-container{
+display: flex;
+gap: 130px;
 }
+
+.benefits-left-side{
+  flex-basis: 570px;
+}
+
 .benefits-list {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  
+  width: 370px;
+  margin: 0 auto;
 }
 .benefits-item {
   width: 170px;
   min-height: 133px;
   padding: 20px 24px;
+  text-align: center;
 
   background: #f7f7f7;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.benefits-item:nth-child(2n) {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.benefits-right-side {
+  flex-basis: 500px;
+}
+
 .benefits-quantity {
+  position: relative;
+  display: inline-block;
+  
   font-weight: 700;
   font-size: 42px;
   line-height: 1.36;
@@ -523,10 +544,14 @@ button {
   color: var(--secondary-txt-cl);
 }
 .benefits-mark {
+  position: absolute;
+  top: 5px;
+  right: -10px;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.38;
   text-align: center;
+  
 
   color: var(--accent-txt-cl);
 }
@@ -538,12 +563,7 @@ button {
 
   color: var(--secondary-txt-cl);
 }
-.benefits-uppertitle {
-}
-.benefits-title {
-}
-.benefits-desc {
-}
+
 /**
   |============================
   | Team styles
@@ -552,14 +572,7 @@ button {
 .team {
   background: #f7f7f7;
 }
-.team-uppertitle {
-}
-.team-title {
-}
-.team-list {
-}
-.team-item {
-}
+
 .team-img {
   margin-bottom: 30px;
 }
@@ -619,19 +632,11 @@ button {
   | Gallery styles
   |============================
 */
-.gallery {
-}
-.gallery-uppertitle {
-}
-.gallery-title {
-}
+
 .gallery-list {
   --items: 4;
 }
-.gallery-item {
-}
-.gallery-img {
-}
+
 /**
   |============================
   | Booking styles
@@ -660,6 +665,130 @@ button {
   line-height: 1.17;
   letter-spacing: 0.05em;
   color: var(--light-txt-cl);
+
+  margin-bottom: 32px;
+}
+
+.booking-form-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.booking-form-field {
+  position: relative;
+  display: block;
+flex-basis: 270px;
+}
+.booking-form-field::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scale(0);
+
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform-origin: left center;
+  transition: transform var(--anim-fast), background-color var(--anim-fast);
+}
+
+.booking-form-field:has(.booking-form-input:focus)::after,
+.booking-form-field:has(.booking-form-input:not(:placeholder-shown))::after,
+.booking-form-field:has(.booking-form-message:focus)::after,
+.booking-form-field:has(.booking-form-message:not(:placeholder-shown))::after {
+  transform: scale(100%);
+}
+
+
+.booking-form-input,
+.booking-form-message {
+  width: 100%;
+  height: 24px;
+  padding: 0;
+  padding-right: 24px;
+  padding-bottom: 4px;
+
+  font-size: 14px;
+  color: var(--gray-cl);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.40);
+  outline: transparent;
+
+  transition: border-color var(--anim-superfast);
+}
+
+.booking-form-input:focus,
+.booking-form-input:not(:placeholder-shown),
+.booking-form-message:focus,
+.booking-form-message:not(:placeholder-shown) {
+  border-color: transparent;
+}
+
+.booking-form-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-cl-40);
+
+  transform-origin: left center;
+  transition: transform var(--anim-superfast), color var(--anim-superfast);
+}
+
+.booking-form-input:focus+.booking-form-tag,
+.booking-form-input:not(:placeholder-shown)+.booking-form-tag,
+.booking-form-message:focus+.booking-form-tag,
+.booking-form-message:not(:placeholder-shown)+.booking-form-tag {
+  transform: translateY(-100%) scale(0.8);
+  color: var(--light-txt-cl);
+}
+
+
+.booking-form-input:not(:placeholder-shown):required:invalid~.booking-form-info {
+  opacity: 1;
+  fill: red;
+  transform: translateY(-50%) scale(1);
+  transition-delay: 150ms;
+}
+
+.booking-form-input:not(:placeholder-shown):required:valid~.booking-form-info {
+  opacity: 1;
+  fill: lightgreen;
+  transform: translateY(-50%) scale(1);
+  transition-delay: 150ms;
+}
+
+
+
+.booking-form-message {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 6px 0;
+
+  margin-top: 44px;
+  resize: none;
+}
+
+.booking-form-message::placeholder {
+  opacity: 0;
+  transition: opacity var(--anim-fast);
+}
+
+.booking-form-message:focus::placeholder {
+  opacity: 1;
+  transition-delay: 300ms;
+}
+
+.booking-form-btn {
+  margin-top: 44px;
 }
 
 /**
@@ -767,14 +896,12 @@ button {
 .overlay {
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
 }
 
 .booking-modal {
   position: fixed;
   top: 50%;
   left: 50%;
-
 
   transform: translate(-50%, -50%);
 
