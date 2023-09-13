@@ -1774,3 +1774,21 @@ flex-basis: 100%;
 .menu-container .side-nav {
   max-width: 200px;
 }
+
+.side-nav {
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
+align-items: center;
+gap: 40px;
+row-gap: 24px;
+}
+
+.side-nav::before {
+  content: '';
+  display: block;
+
+  width: 60px;
+  height: 1px;
+  background-color: var(--secondary-txt-cl);
+}
